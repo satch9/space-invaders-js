@@ -10,12 +10,16 @@ class Game {
     this.numberOfProjectiles = 10
     this.createProjectiles()
 
-    this.columns = 3
-    this.rows = 3
+    this.columns = 2
+    this.rows = 2
     this.enemySize = 60
 
     this.waves = []
     this.waves.push(new Wave(this))
+    this.waveCount = 1
+
+    this.score = 0
+    this.gameOver = false
 
     // event listeners
     window.addEventListener('keydown', (e) => {
@@ -38,6 +42,12 @@ class Game {
     })
     this.waves.forEach((wave) => {
       wave.render(context)
+      if (wave.enemies.length < 1 && !wave.nextWaveTrigger && !this.gameOver) {
+        this.newWave()
+        this.waveCount++
+        wave.nextWaveTrigger = true
+        this.player.lives++
+      }
     })
   }
 
@@ -63,5 +73,17 @@ class Game {
       a.y < b.y + b.height &&
       a.height + a.y > b.y
     )
+  }
+
+  newWave() {
+    if (
+      Math.random() < 0.5 &&
+      this.columns * this.enemySize < this.width * 0.8
+    ) {
+      this.columns++
+    } else if (this.rows * this.enemySize < this.height * 0.6) {
+      this.rows++
+    }
+    this.waves.push(new Wave(this))
   }
 }
