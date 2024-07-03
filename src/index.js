@@ -21,8 +21,9 @@ window.addEventListener("load", (e) => {
     const deltaTime = timeStamp - lastTime;
     lastTime = timeStamp;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    game.render(ctx, deltaTime);
     ui.drawStatusText(ctx);
+    game.render(ctx, deltaTime);
+
     requestAnimationFrame(animate);
   }
 

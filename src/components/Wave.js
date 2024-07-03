@@ -37,7 +37,11 @@ class Wave {
       for (let x = 0; x < this.game.columns; x++) {
         let enemyX = x * this.game.enemySize;
         let enemyY = y * this.game.enemySize;
-        this.enemies.push(new Beetlemorph(this.game, enemyX, enemyY));
+        if (Math.random() < 0.2) {
+          this.enemies.push(new Rhinomorph(this.game, enemyX, enemyY));
+        } else {
+          this.enemies.push(new Beetlemorph(this.game, enemyX, enemyY));
+        }
       }
     }
   }

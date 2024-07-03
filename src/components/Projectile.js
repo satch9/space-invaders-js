@@ -4,7 +4,7 @@
 // It manages the projectile's movement and visibility on the canvas.
 class Projectile {
   constructor() {
-    this.width = 8;
+    this.width = 6;
     this.height = 20;
     this.x = 0;
     this.y = 0;
