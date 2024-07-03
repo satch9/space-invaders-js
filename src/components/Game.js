@@ -11,8 +11,8 @@ class Game {
     this.createProjectiles();
     this.fired = false;
 
-    this.columns = 2;
-    this.rows = 2;
+    this.columns = 1;
+    this.rows = 1;
     this.enemySize = 80;
 
     this.waves = [];
@@ -21,7 +21,7 @@ class Game {
 
     this.spriteUpdate = false;
     this.spriteTimer = 0;
-    this.spriteInterval = 120;
+    this.spriteInterval = 200;
 
     this.score = 0;
     this.gameOver = false;
@@ -50,19 +50,20 @@ class Game {
       this.spriteUpdate = false;
       this.spriteTimer += deltaTime;
     }
-    this.player.draw(context);
-    this.player.update();
     this.projectilesPool.forEach((projectile) => {
       projectile.update();
       projectile.draw(context);
     });
+    this.player.draw(context);
+    this.player.update();
+
     this.waves.forEach((wave) => {
       wave.render(context);
       if (wave.enemies.length < 1 && !wave.nextWaveTrigger && !this.gameOver) {
         this.newWave();
         this.waveCount++;
         wave.nextWaveTrigger = true;
-        this.player.lives++;
+        if (this.player.lives < this.player.maxLives) this.player.lives++;
       }
     });
   }

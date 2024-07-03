@@ -10,8 +10,11 @@ class UI {
     context.shadowColor = "black";
     context.fillText("Score :  " + this.game.score, 20, 40);
     context.fillText("Vague :  " + this.game.waveCount, 20, 80);
+    for (let i = 0; i < this.game.player.maxLives; i++) {
+      context.strokeRect(20 + 20 * i, 100, 5, 15);
+    }
     for (let i = 0; i < this.game.player.lives; i++) {
-      context.fillRect(20 + 10 * i, 100, 5, 20);
+      context.fillRect(20 + 20 * i, 100, 5, 15);
     }
     if (this.game.gameOver) {
       context.textAlign = "center";

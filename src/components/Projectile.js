@@ -11,7 +11,10 @@ class Projectile {
 
   draw(context) {
     if (!this.free) {
+      context.save();
+      context.fillStyle = "gold";
       context.fillRect(this.x, this.y, this.width, this.height);
+      context.restore();
     }
   }
 
