@@ -1,3 +1,7 @@
+// The UI class handles the user interface elements and status display in the game.
+// It receives the game object and renders the score, wave count, player lives, and game over message on the canvas.
+// The class includes a method for drawing the status text on the canvas, updating the UI elements based on the game state, and displaying game over messages.
+// It manages the visual representation of game information and feedback to the player.
 class UI {
   constructor(game) {
     this.game = game;

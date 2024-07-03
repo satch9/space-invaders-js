@@ -1,3 +1,8 @@
+// The Game class represents the main game logic and state.
+// It initializes the game elements such as canvas, player, projectiles, waves, and handles rendering.
+// It also manages event listeners for key presses to control player actions.
+// The class includes methods for creating projectiles, getting free projectiles from a pool, collision detection, starting a new wave, and restarting the game.
+// Overall, it encapsulates the core functionality of the game and orchestrates the interactions between different game components.
 class Game {
   constructor(canvas) {
     this.canvas = canvas;

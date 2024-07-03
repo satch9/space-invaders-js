@@ -1,3 +1,7 @@
+// The Player class represents the player entity in the game.
+// It defines the player's properties such as position, speed, lives, and sprite images.
+// The class includes methods for drawing the player on the canvas, updating its position based on user input, shooting projectiles, and restarting the player's position and lives.
+// It handles the player's movement, shooting mechanics, and collision detection with boundaries and enemies.
 class Player {
   constructor(game) {
     this.game = game;

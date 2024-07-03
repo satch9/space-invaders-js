@@ -1,4 +1,7 @@
-//Object pool class
+// The Projectile class represents the projectiles fired by the player.
+// It defines the projectile's properties such as position, speed, and status.
+// The class includes methods for drawing the projectile on the canvas, updating its position, starting the projectile at a specific location, and resetting it when it goes out of bounds.
+// It manages the projectile's movement and visibility on the canvas.
 class Projectile {
   constructor() {
     this.width = 8;

@@ -1,3 +1,7 @@
+// The Enemy class represents the enemy entities in the game.
+// It defines the enemy's properties such as position, size, lives, and image.
+// The class includes methods for drawing the enemy on the canvas, updating its position, handling collisions with projectiles and the player, and managing its health and deletion.
+// It controls the enemy's behavior, collision detection, and deletion when defeated or reaching the bottom of the canvas.
 class Enemy {
   constructor(game, positionX, positionY) {
     this.game = game;

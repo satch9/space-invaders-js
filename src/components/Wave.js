@@ -1,3 +1,7 @@
+// The Wave class represents a wave of enemies in the game.
+// It initializes the wave with specific properties such as width, height, position, speed, and enemies.
+// The class includes methods for rendering the wave on the canvas, updating the position of enemies, and creating a new wave.
+// It controls the movement of the wave, enemy generation, and deletion of defeated enemies.
 class Wave {
   constructor(game) {
     this.game = game;
