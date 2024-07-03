@@ -10,8 +10,19 @@ class Enemy {
     this.markedForDeletion = false;
   }
   draw(context) {
-    context.strokeRect(this.x, this.y, this.width, this.height);
-    context.drawImage(this.image, this.x, this.y);
+    //context.strokeRect(this.x, this.y, this.width, this.height);
+    // draw items image
+    context.drawImage(
+      this.image,
+      this.frameX * this.width,
+      this.frameY * this.height,
+      this.width,
+      this.height,
+      this.x,
+      this.y,
+      this.width,
+      this.height
+    );
   }
   update(x, y) {
     this.x = x + this.positionX;
@@ -20,11 +31,18 @@ class Enemy {
     // check collision enemies - projectiles
     this.game.projectilesPool.forEach((projectile) => {
       if (!projectile.free && this.game.checkCollision(this, projectile)) {
-        this.markedForDeletion = true;
+        this.hit(1);
         projectile.reset();
-        if (!this.game.gameOver) this.game.score += 5;
       }
     });
+
+    if (this.lives < 1) {
+      this.frameX++;
+      if (this.frameX > this.maxFrame) {
+        this.markedForDeletion = true;
+        if (!this.game.gameOver) this.game.score += this.maxLives;
+      }
+    }
 
     // check collision enemies - player
     if (this.game.checkCollision(this, this.game.player)) {
@@ -39,6 +57,9 @@ class Enemy {
       this.game.gameOver = true;
       this.markedForDeletion = true;
     }
-    console.log(this.game.gameOver);
+  }
+
+  hit(damage) {
+    this.lives -= damage;
   }
 }
